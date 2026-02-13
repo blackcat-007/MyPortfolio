@@ -9,6 +9,7 @@ import SocialIcons from "./SocialIcons";
 import WhatIDo from "./WhatIDo";
 import Work from "./Work";
 import setSplitText from "./utils/splitText";
+import NeonStats from "./stats";
 
 const TechStack = lazy(() => import("./TechStack"));
 
@@ -32,6 +33,7 @@ const MainContainer = ({ children }: PropsWithChildren) => {
   return (
     <div className="container-main">
       <Cursor />
+    
       <Navbar />
       <SocialIcons />
       {isDesktopView && children}
@@ -41,9 +43,9 @@ const MainContainer = ({ children }: PropsWithChildren) => {
         <WhatIDo />
         <Career />
         <Work />
-        <Suspense fallback={<div>Loading....</div>}>
+        <NeonStats />
           <TechStack />
-        </Suspense>
+       
         <Contact />
       </div>
     </div>

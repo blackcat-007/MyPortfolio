@@ -1,74 +1,113 @@
-.work-section h2 {
-  margin-top: 100px;
-  font-size: 70px;
-  font-weight: 500;
+/* ================= SECTION ================= */
+
+.work-section {
+  
+ 
+ 
+  box-sizing: border-box;
+  margin-bottom: 100px;
+   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   /* vertical center */
+  align-items: center;       /* horizontal center */
+  overflow: hidden;
+  position: relative;
 }
+
+/* ================= HEADING ================= */
+
+.work-section h2 {
+  
+  margin-bottom: 40px; /* space BELOW instead */
+  
+  font-size: 64px;
+  font-weight: 500;
+  text-align: center;
+}
+
 .work-section h2 > span {
   color: var(--accentColor);
 }
-.work-section {
-  transition: 0s;
-  height: 100vh;
-  box-sizing: border-box;
-  will-change: transform;
-}
+
+/* ================= CONTAINER ================= */
+
 .work-container {
-  margin: auto;
+  height: 100%;
+  display: flex;
+  
+  justify-content: center;
+  perspective: 1400px; /* Parent depth */
+   width: 100%;
+  max-width: 1400px;
   display: flex;
   flex-direction: column;
-  height: 100%;
-  align-content: stretch;
+  align-items: center;
+  perspective: 1400px;
 }
-.work-flex {
-  width: 100%;
-  display: flex;
-  height: 100%;
-  margin-left: -80px;
-  padding-right: 120px;
+
+/* ================= STACK ================= */
+
+.work-stack {
   position: relative;
+  width: 70%;
+  height: 560px;
+  margin: auto;
+
+  transform-style: preserve-3d;
+  perspective: 1200px;
 }
+
+/* ================= CARDS ================= */
+
 .work-box {
-  padding: 80px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  background: #111;
+  border-radius: 20px;
+  padding: 32px;
+  box-sizing: border-box;
+
   display: flex;
   flex-direction: column;
-  width: 600px;
-  box-sizing: border-box;
-  border-right: 1px solid #363636;
-  flex-shrink: 0;
-  gap: 50px;
-  justify-content: start;
-}
-.work-flex .work-box:nth-child(even) {
-  flex-direction: column-reverse;
-}
-.work-flex::before,
-.work-flex::after {
-  content: "";
-  width: calc(50000vw);
-  height: 1px;
-  background-color: #363636;
-  position: absolute;
-  left: 50%;
-  top: 0;
-  transform: translateX(-50%);
-}
-.work-flex::after {
-  top: 100%;
-}
-.work-title {
   justify-content: space-between;
+  gap: 24px;
+
+  cursor: pointer;
+
+  /* GPU ACCELERATION */
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+
+  /* Premium shadow */
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
+  transition: box-shadow 0.3s ease;
+}
+
+.work-box:hover {
+  box-shadow: 0 60px 140px rgba(0, 0, 0, 0.85);
+}
+
+/* ================= CONTENT ================= */
+
+.work-title {
   display: flex;
-  width: 100%;
-  margin-bottom: 20px;
+  justify-content: space-between;
+  align-items: flex-start;
 }
-.work-title > div {
-  text-align: right;
-}
+
 .work-title h3 {
-  font-size: 50px;
-  line-height: 50px;
+  font-size: 42px;
   margin: 0;
   font-weight: 600;
+}
+
+.work-title > div {
+  text-align: right;
 }
 
 .work-info h4 {
@@ -76,135 +115,64 @@
   font-weight: 400;
   margin: 0;
 }
+
+.work-info h5 {
+  font-size: 14px;
+  font-weight: 300;
+  margin: 4px 0;
+  color: #cfcfcf;
+}
+
 .work-info p {
+  font-size: 14px;
   font-weight: 200;
   color: #adacac;
   margin: 0;
-  margin-top: 3px;
 }
-.work-info > p {
-  width: 90%;
-}
-.work-image {
-  display: flex;
+
+/* ================= IMAGE ================= */
+
+.work-box img {
   width: 100%;
-  justify-content: center;
+  max-height: 260px;
+  object-fit: contain;
+  border-radius: 12px;
 }
-.work-image-in {
-  position: relative;
-}
-.work-link {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  background-color: var(--backgroundColor);
-  width: 50px;
-  border-radius: 50px;
-  height: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 25px;
-  box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.5),
-    inset 0px 0px 10px 0px #393939;
-  transition: 0.3s;
-  opacity: 0;
-}
-.work-image a:hover {
-  color: inherit;
-}
-.work-image a:hover .work-link {
-  opacity: 1;
-}
-.work-image video {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background-color: #000;
-  object-fit: cover;
-}
-.work-image img {
-  max-width: 100%;
-  max-height: 350px;
-}
-@media only screen and (max-height: 900px) {
-  .work-image img {
-    max-height: 250px;
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1400px) {
+  .work-stack {
+    width: 80%;
+    height: 500px;
   }
-  .work-box {
-    padding-top: 40px;
-    padding-bottom: 40px;
-  }
+
   .work-section h2 {
-    font-size: 60px;
-    margin-bottom: 30px;
-    margin-top: 70px;
-  }
-}
-@media only screen and (max-width: 1400px) {
-  .work-title h3 {
-    font-size: 35px;
-  }
-  .work-info p {
-    font-size: 13px;
-  }
-  .work-info h4 {
-    font-size: 15px;
-  }
-  .work-box {
-    width: 450px;
-    padding: 50px;
-  }
-  .work-flex {
-    margin-left: -50px;
-    padding-right: 75px;
-  }
-  .work-section h2 {
-    font-size: 50px;
-  }
-}
-@media only screen and (max-width: 1400px) {
-  .work-box {
-    width: 350px;
-    padding: 30px;
-  }
-  .work-flex {
-    margin-left: -30px;
-    padding-right: 45px;
+    font-size: 52px;
   }
 }
 
-@media only screen and (max-height: 650px) {
-  .work-image img {
-    max-height: 200px;
+@media (max-width: 1024px) {
+  .work-stack {
+    width: 90%;
+    height: 460px;
   }
-  .work-section h2 {
-    font-size: 40px;
-    margin-bottom: 20px;
-  }
+
   .work-box {
-    gap: 20px;
+    padding: 24px;
   }
 }
-/* @media only screen and (max-width: 900px) {
-  .work-image img {
-    max-height: 200px;
+
+@media (max-width: 768px) {
+  .work-stack {
+    height: 420px;
   }
+
   .work-section h2 {
     font-size: 40px;
-    margin-bottom: 20px;
   }
-  .work-box {
-    gap: 20px;
-  }
-} */
-@media only screen and (max-width: 1025px) {
-  .work-container {
-    align-content: normal;
-  }
-  .work-flex {
-    height: auto;
+
+  .work-title h3 {
+    font-size: 30px;
   }
 }
