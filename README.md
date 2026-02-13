@@ -1,15 +1,13 @@
 # My Portfolio Wesbite - Overview 🚀
+Personal Portfolio Website showcasing my projects,
+skills, and interactive 3D web experiences.
 
-This repository contains the open source version of my porfolio website.
-Do check it out!
 
-## Instructions 🛠️
 
-I have modified the gsap club plugins with the trial plugins, but with the trial plugin you cannot host it🔴. So for Club plugins, Check out here: https://gsap.com/docs/v3/Installation/
 
 **Techstack** - React, TypeScript, GSAP, ThreeJS, WebGL, HTML, Css, JavaScript
 
-![Protfolio-Preview](https://github.com/user-attachments/assets/3c4557e7-6392-4928-b8a9-7b2476ef4edd)
+![Protfolio-Preview](https://res.cloudinary.com/ddcdrrav8/image/upload/v1770972375/Screenshot_2026-02-13_141402_evjj72.png)
 
 ## License
 
