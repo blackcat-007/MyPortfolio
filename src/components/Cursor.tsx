@@ -46,7 +46,7 @@ const Cursor = () => {
   items.forEach((item) => {
     const el = item as HTMLElement;
 
-    const enter = (e: MouseEvent) => {
+    const enter = () => {
       const rect = el.getBoundingClientRect();
 
       if (el.dataset.cursor === "icons") {
