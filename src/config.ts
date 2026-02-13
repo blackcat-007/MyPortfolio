@@ -88,7 +88,7 @@ export const config = {
         email: "shubhodeepmukherjee24@gmail.com",
         github: "https://github.com/blackcat-007",
         linkedin: "https://www.linkedin.com/in/shubhodeepmukherjeewebdev",
-       // twitter: "https://x.com",
+        twitter: "https://x.com/Shubhodeep_0101",
         instagram: "https://www.instagram.com/ghorkuno_0111"
     },
     skills: {
