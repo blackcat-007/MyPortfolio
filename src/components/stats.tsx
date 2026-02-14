@@ -140,7 +140,9 @@ export default function NeonStats() {
   }, [ratingHistory]);
 
   // ================= 3D TILT =================
+  const isMobile = window.innerWidth <= 768;
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>, index: number) => {
+     if (isMobile) return;   // 🚫 disable on mobile
     const card = cardsRef.current[index];
     if (!card) return;
     

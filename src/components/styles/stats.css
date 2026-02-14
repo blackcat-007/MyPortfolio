@@ -1,15 +1,14 @@
-/* ================= CSS ================= */
+/* ================= NeonStats.css ================= */
 
-/* NeonStats.css */
-
+/* ---------------- SECTION ---------------- */
 .neon-stats-section {
   position: relative;
   padding: 120px 20px;
- /* background: radial-gradient(circle at top, #14002b, #050008);*/
   overflow: hidden;
+  background: radial-gradient(circle at top, #14002b, #050008);
 }
 
-/* Particle Aura */
+/* ---------------- PARTICLES ---------------- */
 .particle-bg {
   position: absolute;
   inset: 0;
@@ -17,34 +16,42 @@
   background-size: 40px 40px;
   opacity: 0.15;
   animation: floatParticles 20s linear infinite;
+  z-index: 0;
 }
 
 @keyframes floatParticles {
-  from { transform: translateY(0); }
-  to { transform: translateY(-200px); }
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-200px); }
 }
 
+/* ---------------- HEADING ---------------- */
 .stats-heading {
+  position: relative;
+  z-index: 1;
   text-align: center;
   font-size: 3rem;
-    font-weight: 500;
+  font-weight: 500;
   margin-bottom: 80px;
- 
+  color: #fff;
 }
-.stats-heading-span {
+
+.stats-heading span.stats-heading-span {
   color: #c77dff;
-    font-weight: 500;
 }
+
+/* ---------------- GRID ---------------- */
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 40px;
   max-width: 1100px;
-  margin: auto;
+  margin: 0 auto;
   perspective: 1200px;
+  position: relative;
+  z-index: 1;
 }
 
-/* Hologram Glass Card */
+/* ---------------- STAT CARD ---------------- */
 .stat-card {
   position: relative;
   padding: 50px 30px;
@@ -60,7 +67,7 @@
     inset 0 0 15px rgba(176, 38, 255, 0.25);
 }
 
-/* Hologram scan layer */
+/* ---------------- HOLOGRAM LAYER ---------------- */
 .hologram-layer {
   position: absolute;
   inset: 0;
@@ -76,10 +83,11 @@
 }
 
 @keyframes hologramScan {
-  from { transform: translateX(-100%); }
-  to { transform: translateX(100%); }
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
 }
 
+/* ---------------- STAT TEXT ---------------- */
 .stat-number {
   font-size: 3rem;
   color: #e0b3ff;
@@ -96,17 +104,13 @@
   letter-spacing: 1px;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .stats-heading { font-size: 2.2rem; }
-  .stat-number { font-size: 2.4rem; }
-}
-/* ===== GRAPH ===== */
-
+/* ---------------- GRAPH ---------------- */
 .rating-graph-container {
   width: 80%;
   margin: 80px auto 0;
   text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
 .rating-graph-container h3 {
@@ -122,4 +126,92 @@
   border: 1px solid rgba(176, 38, 255, 0.3);
   border-radius: 16px;
   box-shadow: 0 0 40px rgba(176, 38, 255, 0.25);
+}
+
+/* ---------------- RESPONSIVE IMPROVEMENTS ---------------- */
+
+/* Large Tablets / Small Laptops */
+@media (max-width: 1024px) {
+  .neon-stats-section { padding: 100px 20px; }
+
+  .stats-heading { font-size: 2.6rem; margin-bottom: 60px; }
+
+  .stats-grid { gap: 30px; max-width: 900px; }
+
+  .stat-card { padding: 40px 24px; }
+
+  .stat-number { font-size: 2.6rem; }
+
+  .rating-graph-container { width: 90%; }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+  .neon-stats-section { padding: 80px 16px; overflow: visible; }
+
+  .stats-heading { font-size: 2.2rem; margin-bottom: 50px; }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    perspective: none;
+  }
+
+  .stat-card {
+    padding: 32px 20px;
+    border-radius: 16px;
+    box-shadow:
+      0 0 18px rgba(176, 38, 255, 0.35),
+      inset 0 0 12px rgba(176, 38, 255, 0.2);
+    transform: none !important;
+    opacity: 1 !important;
+  }
+
+  .stat-number { font-size: 2.2rem; }
+
+  .stat-label { font-size: 1rem; }
+
+  .rating-graph-container { width: 95%; margin-top: 60px; }
+
+  .rating-graph { height: 180px; }
+
+  .particle-bg { background-size: 60px 60px; opacity: 0.1; }
+}
+
+/* Mobile Phones */
+@media (max-width: 480px) {
+  .neon-stats-section { padding: 70px 14px; }
+
+  .stats-heading { font-size: 1.8rem; margin-bottom: 40px; line-height: 1.3; }
+
+  .stats-grid { grid-template-columns: 1fr; gap: 18px; }
+
+  .stat-card {
+    padding: 26px 18px;
+    border-radius: 14px;
+    box-shadow:
+      0 0 15px rgba(176, 38, 255, 0.35),
+      inset 0 0 10px rgba(176, 38, 255, 0.2);
+    transform: none !important;
+    opacity: 1 !important;
+  }
+
+  .stat-number { font-size: 2rem; }
+
+  .stat-label { font-size: 0.95rem; letter-spacing: 0.5px; }
+
+  .rating-graph-container { width: 100%; margin-top: 50px; }
+
+  .rating-graph { height: 150px; }
+
+  .particle-bg { background-size: 70px 70px; opacity: 0.08; }
+}
+
+/* Ultra Small Devices */
+@media (max-width: 360px) {
+  .stats-heading { font-size: 1.6rem; }
+
+  .stat-number { font-size: 1.8rem; }
+
+  .stat-card { padding: 22px 14px; }
 }
