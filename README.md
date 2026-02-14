@@ -3,7 +3,8 @@ Personal Portfolio Website showcasing my projects,
 skills, and interactive 3D web experiences.
 
 
-
+special thanks to the Moncy Yohannan 
+<a href="https://www.moncy.dev/">Moncy Yohannan</a>
 
 **Techstack** - React, TypeScript, GSAP, ThreeJS, WebGL, HTML, Css, JavaScript
 
