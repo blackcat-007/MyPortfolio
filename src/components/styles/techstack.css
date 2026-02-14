@@ -1,0 +1,10 @@
+.tech-stack h2{
+   display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 24px;
+    bottom: 20px;
+    position: absolute;
+    margin-top: 190px;
+    z-index: 10;
+}

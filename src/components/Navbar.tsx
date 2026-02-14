@@ -1,14 +1,16 @@
 import { useEffect } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 import HoverLinks from "./HoverLinks";
 import { gsap } from "gsap";
 import Lenis from "lenis";
 import "./styles/Navbar.css";
-
+import { useAmbientSound } from "./ambientsound";
 gsap.registerPlugin(ScrollTrigger);
 export let lenis: Lenis | null = null;
 
 const Navbar = () => {
+  const { isPlaying, toggleSound } = useAmbientSound();
   useEffect(() => {
     // Initialize Lenis smooth scroll
     lenis = new Lenis({
@@ -71,6 +73,18 @@ const Navbar = () => {
     <img src="/images/profile.jpg" alt="logo" />
   </div>
 </a>
+<div className="navbar-controls">
+
+  {/* SOUND TOGGLE */}
+  <button
+   className={`nav-btn ${isPlaying ? "playing" : ""}`}
+
+    onClick={toggleSound}
+    data-cursor="disable"
+  >
+    {isPlaying ? "🔊" : "🔇"}
+  </button>
+</div>
 
         <a
           href="mailto:shubhodeepmukherjee24@mail.com"

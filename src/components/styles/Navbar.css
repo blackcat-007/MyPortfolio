@@ -122,3 +122,60 @@
 .logo-dp:active {
   transform: scale(0.97);
 }
+.navbar-controls {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  margin-right: 150px;
+}
+
+.nav-btn {
+  position: relative;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(196, 129, 255, 0.4);
+  backdrop-filter: blur(12px);
+  color: #e0b3ff;
+  font-size: 18px;
+  padding: 8px 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  /* Default soft ring (no pulse) */
+  box-shadow:
+    0 0 4px rgba(196, 129, 255, 0.4),
+    inset 0 0 4px rgba(196, 129, 255, 0.4);
+}
+
+/* Hover glow (independent of music) */
+.nav-btn:hover {
+  transform: scale(1.12);
+  border-color: rgba(196, 129, 255, 0.9);
+
+  box-shadow:
+    0 0 10px rgba(196,129,255,0.7),
+    0 0 20px rgba(196,129,255,0.5),
+    inset 0 0 8px rgba(196,129,255,0.6);
+}
+@keyframes neonPulse {
+  0%, 100% {
+    box-shadow:
+      0 0 6px rgba(196,129,255,0.6),
+      0 0 12px rgba(196,129,255,0.4),
+      inset 0 0 6px rgba(196,129,255,0.5);
+  }
+  50% {
+    box-shadow:
+      0 0 14px rgba(196,129,255,1),
+      0 0 28px rgba(196,129,255,0.8),
+      inset 0 0 10px rgba(196,129,255,0.9);
+  }
+}
+
+/* ACTIVE MUSIC STATE */
+.nav-btn.playing {
+  animation: neonPulse 2s infinite ease-in-out;
+  border-color: rgba(196,129,255,0.9);
+}
+
+
